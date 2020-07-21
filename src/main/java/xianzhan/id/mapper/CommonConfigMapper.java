@@ -1,7 +1,7 @@
 package xianzhan.id.mapper;
 
 import org.springframework.stereotype.Repository;
-import xianzhan.id.entity.CommonConfig;
+import xianzhan.id.pojo.entity.CommonConfig;
 
 import java.util.List;
 

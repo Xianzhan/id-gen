@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import xianzhan.id.AppTest;
-import xianzhan.id.entity.CommonConfig;
+import xianzhan.id.pojo.entity.CommonConfig;
 import xianzhan.id.util.Constants;
 
 import java.util.List;

@@ -6,7 +6,8 @@ package xianzhan.id.util;
  */
 public class Response<T> {
 
-    public static final int OK = 0;
+    public static final int OK   = 0;
+    public static final int FAIL = -1;
 
     private int    code;
     private String msg;
@@ -15,6 +16,14 @@ public class Response<T> {
     public static <T> Response<T> ok(T data) {
         Response<T> res = new Response<>();
         res.setCode(OK);
+        res.setData(data);
+        return res;
+    }
+
+    public static <T> Response<T> fail(T data, String msg) {
+        Response<T> res = new Response<>();
+        res.setCode(FAIL);
+        res.setMsg(msg);
         res.setData(data);
         return res;
     }

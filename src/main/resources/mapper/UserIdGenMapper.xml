@@ -2,14 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xianzhan.id.mapper.UserIdGenMapper">
 
-    <resultMap id="UserIdGenMap" type="xianzhan.id.entity.UserIdGen">
+    <resultMap id="UserIdGenMap" type="xianzhan.id.pojo.entity.UserIdGen">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="start_id" property="startId" jdbcType="BIGINT"/>
         <result column="end_id" property="endId" jdbcType="BIGINT"/>
         <result column="used" property="used" jdbcType="BIGINT"/>
     </resultMap>
 
-    <select id="selectBy" resultType="xianzhan.id.entity.UserIdGen">
+    <insert id="insert">
+        INSERT INTO user_id_gen(start_id, end_id, used)
+            VALUE (#{startId}, #{endId}, #{used})
+    </insert>
+
+    <delete id="deleteByStartId">
+        DELETE
+        FROM user_id_gen
+        WHERE start_id = #{startId}
+    </delete>
+
+    <select id="selectBy" resultMap="UserIdGenMap">
         SELECT id, start_id, end_id, used FROM user_id_gen
         <where>
             <if test="id != null">
@@ -26,6 +37,12 @@
             </if>
         </where>
     </select>
+    <select id="selectToCache" resultMap="UserIdGenMap">
+        SELECT id, start_id, end_id, used
+        FROM user_id_gen
+        WHERE used != -1
+        LIMIT #{size}
+    </select>
 
     <update id="updateByStartId">
         UPDATE user_id_gen
@@ -37,15 +54,5 @@
         WHERE start_id = #{startId}
     </update>
 
-    <insert id="insert">
-        INSERT INTO user_id_gen(start_id, end_id, used)
-            VALUE (#{startId}, #{endId}, #{used})
-    </insert>
-
-    <delete id="deleteByStartId">
-        DELETE
-        FROM user_id_gen
-        WHERE start_id = #{startId}
-    </delete>
 
 </mapper>

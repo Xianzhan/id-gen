@@ -1,0 +1,29 @@
+package xianzhan.id.pojo.param;
+
+import java.util.Date;
+
+/**
+ * 请求参数
+ *
+ * @author xianzhan
+ * @since 2020-07-16
+ */
+public class UserParam {
+
+    private Date requestDate;
+
+    public Date getRequestDate() {
+        return requestDate;
+    }
+
+    public void setRequestDate(Date requestDate) {
+        this.requestDate = requestDate;
+    }
+
+    @Override
+    public String toString() {
+        return "UserParam{" +
+               "requestDate=" + requestDate +
+               '}';
+    }
+}

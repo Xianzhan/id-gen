@@ -2,14 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="xianzhan.id.mapper.CommonConfigMapper">
 
-    <resultMap id="CommonConfigMap" type="xianzhan.id.entity.CommonConfig">
+    <resultMap id="CommonConfigMap" type="xianzhan.id.pojo.entity.CommonConfig">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="category" property="category" jdbcType="VARCHAR"/>
         <result column="key" property="key" jdbcType="VARCHAR"/>
         <result column="value" property="value" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="selectBy" resultType="xianzhan.id.entity.CommonConfig">
+    <insert id="insert">
+        INSERT INTO common_config(category, `key`, value)
+            VALUE (#{category}, #{key}, #{value})
+    </insert>
+
+    <select id="selectBy" resultMap="CommonConfigMap">
         SELECT id, category, `key`, `value` FROM common_config
         <where>
             <if test="id != null">
@@ -42,10 +47,5 @@
         </set>
         WHERE id = #{id}
     </update>
-
-    <insert id="insert">
-        INSERT INTO common_config(category, `key`, value)
-            VALUE (#{category}, #{key}, #{value})
-    </insert>
 
 </mapper>

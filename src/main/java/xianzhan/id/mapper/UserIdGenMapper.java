@@ -1,7 +1,7 @@
 package xianzhan.id.mapper;
 
 import org.springframework.stereotype.Repository;
-import xianzhan.id.entity.UserIdGen;
+import xianzhan.id.pojo.entity.UserIdGen;
 
 import java.util.List;
 
@@ -21,12 +21,12 @@ public interface UserIdGenMapper {
     int insert(UserIdGen userIdGen);
 
     /**
-     * 根据 startId 更新数据
+     * 根据 startId 删除数据
      *
-     * @param userIdGen 数据
+     * @param startId 起始 ID
      * @return 影响行数
      */
-    int updateByStartId(UserIdGen userIdGen);
+    int deleteByStartId(Long startId);
 
     /**
      * 根据条件查询数据
@@ -37,10 +37,18 @@ public interface UserIdGenMapper {
     List<UserIdGen> selectBy(UserIdGen userIdGen);
 
     /**
-     * 根据 startId 删除数据
+     * 查询可使用的 ID 范围
      *
-     * @param startId 起始 ID
+     * @param size size
+     * @return list
+     */
+    List<UserIdGen> selectToCache(int size);
+
+    /**
+     * 根据 startId 更新数据
+     *
+     * @param userIdGen 数据
      * @return 影响行数
      */
-    int deleteByStartId(Long startId);
+    int updateByStartId(UserIdGen userIdGen);
 }

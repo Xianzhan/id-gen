@@ -3,6 +3,7 @@ package xianzhan.id.redis;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import xianzhan.id.AppTest;
@@ -21,5 +22,13 @@ public class RedisTest extends AppTest {
         ValueOperations<String, String> set = stringRedisTemplate.opsForValue();
         set.set("one", "1");
         Assert.assertEquals("1", set.get("one"));
+    }
+
+    @Test
+    public void testList() {
+        ListOperations<String, String> list = stringRedisTemplate.opsForList();
+
+        String val = list.index("list", 5);
+        System.out.println(val);
     }
 }

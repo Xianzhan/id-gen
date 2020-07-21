@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import xianzhan.id.AppTest;
-import xianzhan.id.entity.User;
+import xianzhan.id.pojo.entity.User;
 
 import java.util.Date;
 import java.util.List;

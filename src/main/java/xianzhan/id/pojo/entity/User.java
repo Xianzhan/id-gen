@@ -1,4 +1,4 @@
-package xianzhan.id.entity;
+package xianzhan.id.pojo.entity;
 
 import java.util.Date;
 
@@ -12,6 +12,8 @@ public class User {
     private Long userId;
     private Date createTime;
     private Date updateTime;
+
+    // 省略其它字段数据, 如手机号等个人信息在本项目非关键字段
 
     public Long getId() {
         return id;

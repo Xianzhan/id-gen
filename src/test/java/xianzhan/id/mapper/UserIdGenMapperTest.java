@@ -1,11 +1,16 @@
 package xianzhan.id.mapper;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import xianzhan.id.AppTest;
-import xianzhan.id.entity.UserIdGen;
+import xianzhan.id.pojo.entity.UserIdGen;
+import xianzhan.id.util.Constants;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -51,5 +56,22 @@ public class UserIdGenMapperTest extends AppTest {
     public void deleteByStartId() {
         int i = idGenMapper.deleteByStartId(0L);
         Assert.assertEquals(1, i);
+    }
+
+    @Test
+    public void selectToCache() {
+        List<UserIdGen> userIdGens = idGenMapper.selectToCache(Constants.USER_ID_GEN_SIZE);
+        userIdGens.forEach(obj -> {
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                String json = mapper.writeValueAsString(obj);
+                System.out.println(json);
+                UserIdGen userIdGen = mapper.readValue(json, UserIdGen.class);
+                System.out.println(userIdGen);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        Assert.assertTrue(userIdGens.size() < Constants.USER_ID_GEN_SIZE + 1);
     }
 }

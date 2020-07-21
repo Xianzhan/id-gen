@@ -1,4 +1,4 @@
-package xianzhan.id.entity;
+package xianzhan.id.pojo.entity;
 
 /**
  * @author xianzhan
