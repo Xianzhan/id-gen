@@ -1,12 +1,10 @@
-# 该配置所用 ip 为 wsl2 里的 ip
-
 spring:
   profiles:
     active: dev
   redis:
     # Redis 数据库索引（默认为0）
     database: 0
-    host: 172.27.201.200
+    host: 127.0.0.1
     port: 6379
     # Redis 服务器连接密码（默认为空）
     password:
@@ -19,9 +17,9 @@ spring:
         # 连接池中的最小空闲连接 默认 0
         min-idle: 0
   datasource:
-    url: jdbc:mysql://172.27.201.200:3306/lxz
+    url: jdbc:mysql://127.0.0.1:3306/lxz
     username: root
-    password: 123456
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 使用 druid 数据源
     type: com.alibaba.druid.pool.DruidDataSource

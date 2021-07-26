@@ -1,7 +1,5 @@
 package xianzhan.id.mapper;
 
-import com.alibaba.druid.support.json.JSONUtils;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;

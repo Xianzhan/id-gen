@@ -1,6 +1,5 @@
 package xianzhan.id.manager.impl;
 
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
