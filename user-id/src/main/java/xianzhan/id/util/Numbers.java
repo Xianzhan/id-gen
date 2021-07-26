@@ -1,9 +1,8 @@
 package xianzhan.id.util;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author xianzhan
@@ -58,6 +57,6 @@ public class Numbers {
     }
 
     private static final class RandomNumberGeneratorHolder {
-        static final Random randomNumberGenerator = new Random();
+        static final SecureRandom randomNumberGenerator = new SecureRandom();
     }
 }
