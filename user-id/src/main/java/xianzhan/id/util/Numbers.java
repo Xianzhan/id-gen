@@ -49,7 +49,7 @@ public class Numbers {
 
     public static int random(int min, int range) {
         int bound = min + range;
-        int i = RandomNumberGeneratorHolder.randomNumberGenerator.nextInt(bound);
+        int i = RandomNumberGeneratorHolder.RANDOM_NUMBER_GENERATOR.nextInt(bound);
         if (i < min) {
             i += min;
         }
@@ -57,6 +57,6 @@ public class Numbers {
     }
 
     private static final class RandomNumberGeneratorHolder {
-        static final SecureRandom randomNumberGenerator = new SecureRandom();
+        static final SecureRandom RANDOM_NUMBER_GENERATOR = new SecureRandom();
     }
 }

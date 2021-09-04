@@ -1,7 +1,6 @@
 package xianzhan.id.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,11 +15,10 @@ import javax.annotation.Resource;
  * @author xianzhan
  * @since 2020-07-15
  */
+@Slf4j
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Resource
     private IUserService userService;
@@ -28,7 +26,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/register")
     public Response<UserDTO> register(UserParam param) {
-        LOGGER.info("用户注册, 请求参数: {}", param);
+        log.info("User - register");
         return Response.ok(userService.register(param));
     }
 }

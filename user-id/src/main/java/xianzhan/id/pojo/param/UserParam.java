@@ -1,5 +1,7 @@
 package xianzhan.id.pojo.param;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -8,22 +10,8 @@ import java.util.Date;
  * @author xianzhan
  * @since 2020-07-16
  */
+@Data
 public class UserParam {
 
     private Date requestDate;
-
-    public Date getRequestDate() {
-        return requestDate;
-    }
-
-    public void setRequestDate(Date requestDate) {
-        this.requestDate = requestDate;
-    }
-
-    @Override
-    public String toString() {
-        return "UserParam{" +
-               "requestDate=" + requestDate +
-               '}';
-    }
 }

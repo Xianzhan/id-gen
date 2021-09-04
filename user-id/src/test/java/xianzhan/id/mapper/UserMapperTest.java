@@ -7,7 +7,6 @@ import xianzhan.id.AppTest;
 import xianzhan.id.pojo.entity.User;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author xianzhan
@@ -29,14 +28,5 @@ public class UserMapperTest extends AppTest {
 
         int insert = userMapper.insert(user);
         Assert.assertEquals(1, insert);
-    }
-
-    @Test
-    public void selectBy() {
-        User query = new User();
-        query.setUserId(1L);
-
-        List<User> users = userMapper.selectBy(query);
-        Assert.assertEquals(1, users.size());
     }
 }

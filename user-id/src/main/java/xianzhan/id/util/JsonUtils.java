@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class JsonUtils {
 
-    private static ObjectMapper objectMapper;
+    private static volatile ObjectMapper objectMapper;
 
     public static String toJson(Object obj) {
         String json;
@@ -35,12 +35,12 @@ public class JsonUtils {
 
     private static ObjectMapper getObjectMapper() {
         ObjectMapper mapper = objectMapper;
-        if (objectMapper == null) {
+        if (mapper == null) {
             synchronized (JsonUtils.class) {
                 if (objectMapper == null) {
                     objectMapper = new ObjectMapper();
-                    mapper = objectMapper;
                 }
+                mapper = objectMapper;
             }
         }
         return mapper;

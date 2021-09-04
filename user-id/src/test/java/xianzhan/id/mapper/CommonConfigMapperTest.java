@@ -7,8 +7,6 @@ import xianzhan.id.AppTest;
 import xianzhan.id.pojo.entity.CommonConfig;
 import xianzhan.id.util.Constants;
 
-import java.util.List;
-
 /**
  * @author xianzhan
  * @since 2020-07-15
@@ -29,16 +27,6 @@ public class CommonConfigMapperTest extends AppTest {
 
         int insert = commonConfigMapper.insert(config);
         Assert.assertEquals(1, insert);
-    }
-
-    @Test
-    public void selectBy() {
-        CommonConfig query = new CommonConfig();
-        query.setCategory(Constants.USER_ID);
-        query.setKey(Constants.USER_ID_MIN);
-
-        List<CommonConfig> commonConfigs = commonConfigMapper.selectBy(query);
-        Assert.assertEquals(1, commonConfigs.size());
     }
 
     @Test

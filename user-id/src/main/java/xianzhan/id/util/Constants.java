@@ -8,9 +8,6 @@ public interface Constants {
 
     String USER_ID           = "user_id";
     String USER_ID_MIN       = "user_id_min";
-    int    USER_ID_MAX_SHIFT = 63;
-
-    String USER_ID_GEN_LIST = "user_id_gen_list";
 
     int USER_ID_GEN_SIZE = 10;
 }

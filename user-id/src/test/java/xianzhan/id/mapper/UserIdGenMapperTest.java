@@ -25,7 +25,6 @@ public class UserIdGenMapperTest extends AppTest {
         UserIdGen userIdGen = new UserIdGen();
         userIdGen.setStartId(0L);
         userIdGen.setEndId(16L);
-        userIdGen.setUsed(0L);
 
         int insert = idGenMapper.insert(userIdGen);
         Assert.assertEquals(1, insert);
@@ -35,7 +34,6 @@ public class UserIdGenMapperTest extends AppTest {
     public void updateByStartId() {
         UserIdGen userIdGen = new UserIdGen();
         userIdGen.setStartId(0L);
-        userIdGen.setUsed(1L);
 
         int i = idGenMapper.updateByStartId(userIdGen);
         Assert.assertEquals(1, i);

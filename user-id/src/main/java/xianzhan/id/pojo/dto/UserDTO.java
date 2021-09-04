@@ -1,5 +1,6 @@
 package xianzhan.id.pojo.dto;
 
+import lombok.Data;
 import xianzhan.id.pojo.entity.User;
 
 /**
@@ -9,7 +10,10 @@ import xianzhan.id.pojo.entity.User;
  * @see xianzhan.id.pojo.entity.User
  * @since 2020-07-16
  */
+@Data
 public class UserDTO {
+
+    private Long userId;
 
     public static UserDTO of(User user) {
         UserDTO userDTO = new UserDTO();
@@ -19,22 +23,5 @@ public class UserDTO {
 
         userDTO.setUserId(user.getUserId());
         return userDTO;
-    }
-
-    private Long userId;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-               "userId=" + userId +
-               '}';
     }
 }
